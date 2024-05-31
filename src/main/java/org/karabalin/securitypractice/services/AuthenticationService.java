@@ -32,7 +32,7 @@ public class AuthenticationService {
      */
     public JwtAuthenticationResponse signUp(SignUp request) {
 
-        var user = new User(request.getUsername(), request.getEmail(), passwordEncoder.encode(request.getPassword()), Role.ROLE_USER);
+        var user = new User(request.getUsername(), passwordEncoder.encode(request.getPassword()), request.getEmail(),   Role.ROLE_USER);
 
         userService.create(user);
 
